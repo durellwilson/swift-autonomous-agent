@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/master.swiftdeps"
+  },
+  "/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/EcosystemOrchestrator.swift": {
+    "dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.d",
+    "object": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swift.o",
+    "swiftmodule": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator~partial.swiftmodule",
+    "swift-dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swiftdeps",
+    "diagnostics": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.dia"
+  },
+  "/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/main.swift": {
+    "dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.d",
+    "object": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swift.o",
+    "swiftmodule": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swiftdeps",
+    "diagnostics": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.dia"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/master.swiftdeps"
+  },
+  "/Users/rellonaut/Projects/swift-autonomous-agent/Tests/SwiftAutonomousAgentTests/OrchestratorTests.swift": {
+    "dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.d",
+    "object": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.swift.o",
+    "swiftmodule": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.swiftdeps",
+    "diagnostics": "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.dia"
+  }
+}

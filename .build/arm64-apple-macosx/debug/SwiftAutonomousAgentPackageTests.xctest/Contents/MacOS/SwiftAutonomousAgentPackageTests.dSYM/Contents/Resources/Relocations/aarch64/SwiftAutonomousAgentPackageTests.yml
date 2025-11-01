@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.xctest/Contents/MacOS/SwiftAutonomousAgentPackageTests'
+relocations:     []
+...

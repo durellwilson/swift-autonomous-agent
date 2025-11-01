@@ -1,0 +1,146 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "SwiftAutonomousAgent-arm64-apple-macosx26.0-debug.module": ["<SwiftAutonomousAgent-arm64-apple-macosx26.0-debug.module>"]
+  "SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.module": ["<SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.module>"]
+  "SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.test": ["<SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.test>"]
+  "SwiftAutonomousAgentTests-arm64-apple-macosx26.0-debug.module": ["<SwiftAutonomousAgentTests-arm64-apple-macosx26.0-debug.module>"]
+  "agent-arm64-apple-macosx26.0-debug.exe": ["<agent-arm64-apple-macosx26.0-debug.exe>"]
+  "main": ["<SwiftAutonomousAgent-arm64-apple-macosx26.0-debug.module>","<agent-arm64-apple-macosx26.0-debug.exe>"]
+  "test": ["<SwiftAutonomousAgent-arm64-apple-macosx26.0-debug.module>","<SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.test>","<SwiftAutonomousAgentTests-arm64-apple-macosx26.0-debug.module>","<agent-arm64-apple-macosx26.0-debug.exe>"]
+default: "main"
+nodes:
+  "/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/rellonaut/Projects/swift-autonomous-agent/Tests/SwiftAutonomousAgentTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent":
+    is-mutated: true
+commands:
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/EcosystemOrchestrator.swift","/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/main.swift"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/sources"]
+    description: "Write auxiliary file /Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/sources"
+
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.derived/runner.swift"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/sources"]
+    description: "Write auxiliary file /Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/sources"
+
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: []
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.derived/runner.swift"]
+
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/runner.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.swift.o"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.product/Objects.LinkFileList"
+
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/rellonaut/Projects/swift-autonomous-agent/Tests/SwiftAutonomousAgentTests/OrchestratorTests.swift"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/sources"]
+    description: "Write auxiliary file /Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/sources"
+
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent-entitlement.plist"]
+    description: "Write auxiliary file /Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent-entitlement.plist"
+
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swift.o"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent.product/Objects.LinkFileList"
+
+  "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<SwiftAutonomousAgent-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgent.swiftmodule"]
+    outputs: ["<SwiftAutonomousAgent-arm64-apple-macosx26.0-debug.module>"]
+
+  "<SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/runner.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentPackageTests.swiftmodule"]
+    outputs: ["<SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.module>"]
+
+  "<SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.test>":
+    tool: phony
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.xctest/Contents/MacOS/SwiftAutonomousAgentPackageTests"]
+    outputs: ["<SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.test>"]
+
+  "<SwiftAutonomousAgentTests-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentTests.swiftmodule"]
+    outputs: ["<SwiftAutonomousAgentTests-arm64-apple-macosx26.0-debug.module>"]
+
+  "<agent-arm64-apple-macosx26.0-debug.exe>":
+    tool: phony
+    inputs: ["<agent-arm64-apple-macosx26.0-debug.exe-CodeSigning>"]
+    outputs: ["<agent-arm64-apple-macosx26.0-debug.exe>"]
+
+  "C.SwiftAutonomousAgent-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/EcosystemOrchestrator.swift","/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/main.swift","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/sources"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgent.swiftmodule"]
+    description: "Compiling Swift Module 'SwiftAutonomousAgent' (2 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","SwiftAutonomousAgent","-emit-dependencies","-emit-module","-emit-module-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgent.swiftmodule","-output-file-map","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/output-file-map.json","-incremental","-c","@/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/sources","-I","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx15.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","SwiftAutonomousAgent_main","-swift-version","6","-parse-as-library","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","swift_autonomous_agent"]
+
+  "C.SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.derived/runner.swift","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentTests.swiftmodule","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/sources"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/runner.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentPackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'SwiftAutonomousAgentPackageTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","SwiftAutonomousAgentPackageTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentPackageTests.swiftmodule","-output-file-map","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/sources","-I","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx15.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/include/SwiftAutonomousAgentPackageTests-Swift.h","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","swift_autonomous_agent"]
+
+  "C.SwiftAutonomousAgentPackageTests-arm64-apple-macosx26.0-debug.test":
+    tool: shell
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/runner.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.product/Objects.LinkFileList"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.xctest/Contents/MacOS/SwiftAutonomousAgentPackageTests"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.xctest/Contents/MacOS/SwiftAutonomousAgentPackageTests"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug","-o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.xctest/Contents/MacOS/SwiftAutonomousAgentPackageTests","-module-name","SwiftAutonomousAgentPackageTests","-Xlinker","-no_warn_duplicate_libraries","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.product/Objects.LinkFileList","-target","arm64-apple-macosx15.0","-Xlinker","-add_ast_path","-Xlinker","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgent.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentPackageTests.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentTests.swiftmodule","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.SwiftAutonomousAgentTests-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/Tests/SwiftAutonomousAgentTests/OrchestratorTests.swift","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/sources"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/OrchestratorTests.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentTests.swiftmodule"]
+    description: "Compiling Swift Module 'SwiftAutonomousAgentTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","SwiftAutonomousAgentTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgentTests.swiftmodule","-output-file-map","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentTests.build/sources","-I","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx15.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","6","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","swift_autonomous_agent"]
+
+  "C.agent-arm64-apple-macosx26.0-debug.exe":
+    tool: shell
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/EcosystemOrchestrator.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgent.build/main.swift.o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent.product/Objects.LinkFileList"]
+    outputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/agent"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug","-o","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent","-module-name","agent","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_SwiftAutonomousAgent_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent.product/Objects.LinkFileList","-target","arm64-apple-macosx15.0","-Xlinker","-add_ast_path","-Xlinker","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/Modules/SwiftAutonomousAgent.swiftmodule","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.agent-arm64-apple-macosx26.0-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent-entitlement.plist"]
+    outputs: ["<agent-arm64-apple-macosx26.0-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/agent"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent-entitlement.plist","/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/agent"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/rellonaut/Projects/swift-autonomous-agent/Sources/SwiftAutonomousAgent/","/Users/rellonaut/Projects/swift-autonomous-agent/Tests/SwiftAutonomousAgentTests/","/Users/rellonaut/Projects/swift-autonomous-agent/Package.swift","/Users/rellonaut/Projects/swift-autonomous-agent/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

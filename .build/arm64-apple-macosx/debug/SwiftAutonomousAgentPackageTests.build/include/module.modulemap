@@ -1,0 +1,3 @@
+module SwiftAutonomousAgentPackageTests {
+    header "/Users/rellonaut/Projects/swift-autonomous-agent/.build/arm64-apple-macosx/debug/SwiftAutonomousAgentPackageTests.build/include/SwiftAutonomousAgentPackageTests-Swift.h"
+}

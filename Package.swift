@@ -8,7 +8,10 @@ let package = Package(
         .executable(name: "agent", targets: ["SwiftAutonomousAgent"]),
     ],
     targets: [
-        .executableTarget(name: "SwiftAutonomousAgent"),
+        .executableTarget(
+            name: "SwiftAutonomousAgent",
+            swiftSettings: [.unsafeFlags(["-parse-as-library"])]
+        ),
         .testTarget(name: "SwiftAutonomousAgentTests", dependencies: ["SwiftAutonomousAgent"]),
     ]
 )
